@@ -1,0 +1,42 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        tiempo_segundos   R-squared:                       0.998
+Model:                            OLS   Adj. R-squared:                  0.998
+Method:                 Least Squares   F-statistic:                     2342.
+Date:                Wed, 22 Oct 2025   Prob (F-statistic):           1.47e-61
+Time:                        19:05:48   Log-Likelihood:                 259.88
+No. Observations:                  60   AIC:                            -495.8
+Df Residuals:                      48   BIC:                            -470.6
+Df Model:                          11                                         
+Covariance Type:            nonrobust                                         
+============================================================================================================================
+                                                               coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------------------------------------------
+Intercept                                                    0.0004      0.002      0.242      0.810      -0.003       0.004
+C(lenguaje)[T.go]                                            0.0010      0.002      0.459      0.648      -0.003       0.006
+C(lenguaje)[T.java]                                          0.0160      0.002      7.117      0.000       0.011       0.021
+C(lenguaje)[T.python]                                        0.1722      0.002     76.519      0.000       0.168       0.177
+C(cantidad_multiplicacion)[T.1000]                         2.86e-05      0.002      0.013      0.990      -0.004       0.005
+C(cantidad_multiplicacion)[T.2000]                         1.76e-05      0.002      0.008      0.994      -0.005       0.005
+C(lenguaje)[T.go]:C(cantidad_multiplicacion)[T.1000]        7.2e-06      0.003      0.002      0.998      -0.006       0.006
+C(lenguaje)[T.java]:C(cantidad_multiplicacion)[T.1000]      -0.0149      0.003     -4.698      0.000      -0.021      -0.009
+C(lenguaje)[T.python]:C(cantidad_multiplicacion)[T.1000]     0.0003      0.003      0.100      0.920      -0.006       0.007
+C(lenguaje)[T.go]:C(cantidad_multiplicacion)[T.2000]      -1.74e-05      0.003     -0.005      0.996      -0.006       0.006
+C(lenguaje)[T.java]:C(cantidad_multiplicacion)[T.2000]      -0.0150      0.003     -4.709      0.000      -0.021      -0.009
+C(lenguaje)[T.python]:C(cantidad_multiplicacion)[T.2000]     0.0001      0.003      0.037      0.971      -0.006       0.007
+==============================================================================
+Omnibus:                       37.462   Durbin-Watson:                   2.739
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              366.427
+Skew:                          -1.183   Prob(JB):                     2.70e-80
+Kurtosis:                      14.873   Cond. No.                         17.9
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+ANOVA (Type II):
+                                          sum_sq    df            F        PR(>F)
+C(lenguaje)                             0.325286   3.0  8566.903579  1.739894e-65
+C(cantidad_multiplicacion)              0.000179   2.0     7.076785  2.025835e-03
+C(lenguaje):C(cantidad_multiplicacion)  0.000565   6.0     7.445782  1.142973e-05
+Residual                                0.000608  48.0          NaN           NaN

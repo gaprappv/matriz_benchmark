@@ -1,0 +1,5 @@
+benchmark_csv: "results/benchmark.csv"
+analysis_dir: "analysis"
+
+# ANOVA factorial con interacción (confirmado)
+formula: "tiempo_segundos ~ C(lenguaje) + C(cantidad_multiplicacion) + C(lenguaje):C(cantidad_multiplicacion)"

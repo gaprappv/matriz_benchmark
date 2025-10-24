@@ -1,0 +1,38 @@
+configfile: "config/config.yaml"
+
+ANALYSIS_DIR = config["analysis_dir"]
+BENCH = config["benchmark_csv"]
+
+rule all:
+    input:
+        f"{ANALYSIS_DIR}/anova_table.csv",
+        f"{ANALYSIS_DIR}/group_means.csv",
+        f"{ANALYSIS_DIR}/boxplot.png",
+        f"{ANALYSIS_DIR}/residuals_qq.png",
+        f"{ANALYSIS_DIR}/model_summary.txt"
+
+rule run_benchmarks:
+    output:
+        BENCH
+    shell:
+        """
+        mkdir -p results
+        python3 run_all.py
+        test -s {output}
+        """
+
+rule anova:
+    input:
+        csv=BENCH
+    output:
+        table=f"{ANALYSIS_DIR}/anova_table.csv",
+        means=f"{ANALYSIS_DIR}/group_means.csv",
+        box=f"{ANALYSIS_DIR}/boxplot.png",
+        qq=f"{ANALYSIS_DIR}/residuals_qq.png",
+        summary=f"{ANALYSIS_DIR}/model_summary.txt"
+    params:
+        formula=config["formula"],
+        outdir=ANALYSIS_DIR
+    script:
+        "../scripts/anova.py"
+        

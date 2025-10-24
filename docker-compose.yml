@@ -1,0 +1,7 @@
+services:
+  matriz-benchmark:
+    image: gapr1986/matriz_benchmark_snakemake:latest  # Usa la imagen de Docker Hub
+    container_name: matriz-benchmark-snakemake
+    volumes:
+      - ./results:/app/results              # Guarda los resultados en tu máquina local
+    tty: true
